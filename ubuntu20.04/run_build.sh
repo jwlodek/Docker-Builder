@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # This bash script will be run with when the docker image is run
-git clone https://github.com/epicsNSLS2-deploy/installSynApps
+git clone --single-branch --branch=R2-6-devel https://github.com/jwlodek/installSynApps
 cd installSynApps
 git clone https://github.com/epicsNSLS2-deploy/Install-Configurations
 if [ "$ADCORE_VERSION" == "newest" ];
 then
-python3 -u installCLI.py -v -c Install-Configurations/configureDeb8
+python3 -u installCLI.py -v -c Install-Configurations/configureDeb9
 else
 cd Install-Configurations
 echo "Checking out config version $ADCORE_VERSION"
